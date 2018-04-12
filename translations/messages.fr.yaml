@@ -1,0 +1,14 @@
+form:
+  title: Nouvel utilisateur
+  firstName: Prénom
+  lastName: Nom
+  mail: E-mail
+  birth: Date de Naissance
+  save: Créer l'utilisateur
+
+list:
+  title: Liste des utilisateurs
+
+user:
+  born: né(e) le
+

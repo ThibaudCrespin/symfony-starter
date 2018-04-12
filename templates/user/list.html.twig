@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Utilisateurs{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1>{{ 'list.title'|trans }}</h1>
+        <ul class="list-group">
+            {% for user in users %}
+                <li class="list-group-item">
+                    {{ user.firstName }} {{ user.lastName }}, {{ 'user.born'|trans }} {{ user.birth|date('d M Y') }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
