@@ -6,6 +6,7 @@ use App\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 class UserController extends Controller
 {
     /**
-     * @Route("/user", name="user")
+     * @Route("/admin/user", name="user")
      */
     public function index($id)
     {
@@ -36,7 +37,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/user/success", name="user_success")
+     * @Route("/admin/user/success", name="user_success")
      * @Template()
      */
     public function success()
@@ -45,7 +46,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/user/new", name="user_new")
+     * @Route("/admin/user/new", name="user_new")
      * @Template()
      */
     public function new(Request $request, TranslatorInterface $translator)
@@ -53,6 +54,12 @@ class UserController extends Controller
         $user = new User();
 
         $form = $this->createFormBuilder($user)
+            ->add('username', TextType::class, array(
+                'label' => $translator->trans('form.username')
+            ))
+            ->add('password', PasswordType::class, array(
+                'label' => $translator->trans('form.password')
+            ))
             ->add('firstName', TextType::class, array(
                 'label' => $translator->trans('form.firstName')
             ))
@@ -88,7 +95,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/users", name="user_list")
+     * @Route("/admin/users", name="user_list")
      * @Template()
      */
     public function list()

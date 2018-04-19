@@ -1,5 +1,7 @@
 form:
   title: Nouvel utilisateur
+  username: Nom d'utilisateur
+  password: Mot de Passe
   firstName: Prénom
   lastName: Nom
   mail: E-mail
@@ -12,3 +14,7 @@ list:
 user:
   born: né(e) le
 
+login:
+  username: Identifiant
+  password: Mot de passe
+  connect: Se connecter
